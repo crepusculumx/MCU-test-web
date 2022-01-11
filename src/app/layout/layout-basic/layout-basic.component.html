@@ -1,0 +1,17 @@
+<nz-layout class="layout">
+  <nz-sider>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzTitle="电机" nzIcon="dashboard" nzOpen>
+        <ul *ngFor="let motorId of motors">
+          <li nz-menu-item>{{ motorId }}</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout class="right-layout">
+    <nz-header></nz-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
