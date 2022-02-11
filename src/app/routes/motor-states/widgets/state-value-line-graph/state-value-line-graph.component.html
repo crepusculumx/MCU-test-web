@@ -1,0 +1,9 @@
+<nz-card>
+  <nz-switch
+    [ngModel]="isGraphRun$ | async"
+    (ngModelChange)="isGraphRun$.next($event)"
+    nzCheckedChildren="运行"
+    nzUnCheckedChildren="暂停"
+  ></nz-switch>
+  <div id="container"></div>
+</nz-card>

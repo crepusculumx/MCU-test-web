@@ -1,0 +1,54 @@
+<nz-card nzTitle="手动控制" [nzExtra]="extraTemplate">
+  <!-- 按钮 -->
+  <nz-radio-group
+    nzSize="large"
+    [ngModel]="selectMode$ | async"
+    (ngModelChange)="selectMode$.next($event)"
+    [nzDisabled]="(available$ | async) === false"
+  >
+    <nz-space>
+      <label *nzSpaceItem nz-radio-button [nzValue]="options[0].label">{{
+        options[0].value
+      }}</label>
+      <label *nzSpaceItem nz-radio-button [nzValue]="options[1].label">{{
+        options[1].value
+      }}</label>
+      <label *nzSpaceItem nz-radio-button [nzValue]="options[2].label">{{
+        options[2].value
+      }}</label>
+    </nz-space>
+  </nz-radio-group>
+
+  <!-- 滑动输入 -->
+  <nz-row>
+    <nz-col nzFlex="auto">
+      <nz-slider
+        [nzMin]="sliderMin$ | async"
+        [nzMax]="sliderMax$ | async"
+        [nzStep]="sliderStep$ | async"
+        [ngModel]="motorStateValue$ | async"
+        [nzDisabled]="(available$ | async) === false"
+        [nzMarks]="sliderMarks$ | async"
+        (ngModelChange)="motorStateValue$.next($event)"
+      ></nz-slider>
+    </nz-col>
+    <div nz-col nzFlex="100px">
+      <nz-input-number
+        [nzMin]="(sliderMin$ | async)!"
+        [nzMax]="(sliderMax$ | async)!"
+        [ngStyle]="{ marginLeft: '16px' }"
+        [ngModel]="motorStateValue$ | async"
+        [nzDisabled]="(available$ | async) === false"
+        (ngModelChange)="motorStateValue$.next($event)"
+      ></nz-input-number>
+    </div>
+  </nz-row>
+</nz-card>
+<ng-template #extraTemplate>
+  <nz-switch
+    [ngModel]="available$ | async"
+    (ngModelChange)="available$.next($event)"
+    nzCheckedChildren="开"
+    nzUnCheckedChildren="关"
+  ></nz-switch>
+</ng-template>

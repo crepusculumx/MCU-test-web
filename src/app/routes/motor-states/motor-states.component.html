@@ -1,0 +1,19 @@
+<nz-space nzDirection="vertical" style="width: 100%">
+  <nz-page-header
+    *nzSpaceItem
+    nzTitle="电机:{{ motorId$ | async }}"
+    [nzGhost]="false"
+  ></nz-page-header>
+  <app-state-statistic-cards
+    *nzSpaceItem
+    [motorId$]="motorId$"
+  ></app-state-statistic-cards>
+  <app-user-controllers
+    *nzSpaceItem
+    [motorId$]="motorId$"
+  ></app-user-controllers>
+  <app-state-value-line-graph
+    *nzSpaceItem
+    [motorId$]="motorId$"
+  ></app-state-value-line-graph>
+</nz-space>

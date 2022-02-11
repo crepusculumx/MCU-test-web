@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutBasicComponent,
-    children: [{ path: '', redirectTo: 'home', pathMatch: 'full' }],
+    loadChildren: () =>
+      import('./routes/routes.module').then((m) => m.RoutesModule),
   },
 ];
 

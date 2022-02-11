@@ -11,7 +11,7 @@ export class LayoutBasicComponent implements OnInit {
   public motors: Array<number> = [];
 
   ngOnInit(): void {
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 8; i++) {
       this.motors.push(i);
     }
   }

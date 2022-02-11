@@ -1,0 +1,26 @@
+<nz-row [nzGutter]="24">
+  <nz-col [nzSpan]="8">
+    <nz-card>
+      <nz-statistic
+        [nzValue]="(communicationState$ | async)!"
+        [nzTitle]="'通信状态'"
+      ></nz-statistic>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="8">
+    <nz-card>
+      <nz-statistic
+        [nzValue]="(motorStateMode$ | async)!"
+        [nzTitle]="'工作模式'"
+      ></nz-statistic>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="8">
+    <nz-card>
+      <nz-statistic
+        [nzValue]="(motorStateValue$ | async)!"
+        [nzTitle]="'数值'"
+      ></nz-statistic>
+    </nz-card>
+  </nz-col>
+</nz-row>

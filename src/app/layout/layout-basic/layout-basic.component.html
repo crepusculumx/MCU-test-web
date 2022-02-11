@@ -2,14 +2,16 @@
   <nz-sider>
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-submenu nzTitle="电机" nzIcon="dashboard" nzOpen>
-        <ul *ngFor="let motorId of motors">
-          <li nz-menu-item>{{ motorId }}</li>
+        <ul *ngFor="let motorId of motors" nzMatchRouter>
+          <li nz-menu-item routerLink="/motor-states/{{ motorId }}">
+            {{ motorId }}
+          </li>
         </ul>
       </li>
     </ul>
   </nz-sider>
   <nz-layout class="right-layout">
-    <nz-header></nz-header>
+    <!-- <nz-header></nz-header> -->
     <nz-content>
       <router-outlet></router-outlet>
     </nz-content>
